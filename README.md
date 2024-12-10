@@ -1,69 +1,18 @@
 # git-dumper
 
-A tool to dump a git repository from a website.
+Ein Tool zum dumpen eines .git Repository von einer Webseite.
 
-## Install
-
-This can be installed easily with pip:
+## Installation
 ```
-pip install git-dumper
+pipx install git-dumper==1.0.4
 ```
 
-## Usage
-
+## Example
 ```
-usage: git-dumper [options] URL DIR
-
-Dump a git repository from a website.
-
-positional arguments:
-  URL                   url
-  DIR                   output directory
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --proxy PROXY         use the specified proxy
-  -j JOBS, --jobs JOBS  number of simultaneous requests
-  -r RETRY, --retry RETRY
-                        number of request attempts before giving up
-  -t TIMEOUT, --timeout TIMEOUT
-                        maximum time in seconds before giving up
-  -u USER_AGENT, --user-agent USER_AGENT
-                        user-agent to use for requests
-  -H HEADER, --header HEADER
-                        additional http headers, e.g `NAME=VALUE`
-  --client-cert-p12 CLIENT_CERT_P12
-                        client certificate in PKCS#12 format
-  --client-cert-p12-password CLIENT_CERT_P12_PASSWORD
-                        password for the client certificate
+git-dumper http://dev.linkvortex.htb/.git/ ~/CTF/linkvortex
 ```
 
-### Example
-
-```
-git-dumper http://website.com/.git ~/website
-```
-
-### Disclaimer
-
-**Use this software at your own risk!**
-
-You should know that if the repository you are downloading is controlled by an attacker,
-this could lead to remote code execution on your machine.
-
-## Build from source
-
-Simply install the dependencies with pip:
-```
-pip install -r requirements.txt
-```
-
-Then, simply use:
-```
-./git_dumper.py http://website.com/.git ~/website
-```
-
-## How does it work?
+#### How does it work?
 
 The tool will first check if directory listing is available. If it is, then it will just recursively download the .git directory (what you would do with `wget`).
 
