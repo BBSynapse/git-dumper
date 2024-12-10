@@ -12,6 +12,13 @@ pipx install git-dumper==1.0.4
 git-dumper http://dev.linkvortex.htb/.git/ ~/CTF/linkvortex
 ```
 
+## Build from source
+
+Simply install the dependencies with pip:
+```
+pip install -r requirements.txt
+```
+
 #### How does it work?
 
 The tool will first check if directory listing is available. If it is, then it will just recursively download the .git directory (what you would do with `wget`).
